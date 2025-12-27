@@ -1,0 +1,208 @@
+
+
+<div class="row">
+    <div class="col-md-6 mb-4 mb-md-0">
+        <div class="card">
+        <div class="card-header">
+            Add Todo
+        </div>
+        <div class="card-body">
+            <label class="font-weight-bold" for="todoItem">Todo Item</label>
+            <input type="text" class="form-control" #todoItem>
+        </div>
+        <div class="card-footer p-0">
+            <button *ngIf="!isInEditMode"
+            (click)="onTodoAdd()"
+                mat-raised-button color="primary" class="btn-block">Add Todo</button>
+                <button *ngIf="isInEditMode"
+                (click)="onUpdateTodo()"
+                mat-raised-button color="primary" class="btn-block">Update Todo</button>
+        </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <ul class="list-group" *ngIf="todoArr.length > 0;else notodo">
+                    <li *ngFor="let todo of todoArr; trackBy : trackById"
+                    class="list-group-item d-flex justify-content-between">
+                        <span>{{todo.todoItem}} </span>
+
+                        <div>
+                            <button 
+                            (click)="onEditTodo(todo)"
+                            mat-mini-fab color="primary" class="mr-2"><mat-icon>edit</mat-icon></button>
+                            <button 
+                            (click)="onRemove(todo.todoId)"
+                            mat-mini-fab  color="warn"><mat-icon>delete</mat-icon></button>
+                        </div>
+                        </li>
+                </ul>
+
+                <ng-template  #notodo>
+                    <p class="alert alert-info">
+                        no todos!!!
+                    </p>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr>
+
+<div class="row">
+    <div class="col-md-6 mb-4 mb-md-0">
+        <div class="card">
+            <div class="card-header">
+                Add Todo
+            </div>
+            <div class="card-body">
+                <label for="todoItem1">Todo Item</label>
+                <input type="text" class="form-control" #todoItem1>
+            </div>
+            <div class="card-footer">
+                <button 
+                 *ngIf="!isInEditMode1"
+                (click)="onTodoAdd1()"
+                mat-raised-button class="btn-block" color="primary">Add Todo</button>
+                 <button 
+                 *ngIf="isInEditMode1"
+                (click)="onTodoUpdate1()"
+                mat-raised-button class="btn-block" color="accent">Update Todo</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <ul class="list-group" *ngIf="todoArr.length > 0;else notodo1">
+                    <li *ngFor="let todo1 of todoArr; trackBy:trackById1"
+                    class="list-group-item d-flex justify-content-between align-items-center">
+                       <strong> {{todo1.todoItem}}</strong>
+                       <div>
+                            <button
+                            (click)="onTodoEdit1(todo1)"
+                             mat-raised-button color="primary" class="mr-2">Edit</button>
+                            <button
+                            (click)="onTodoRemove1(todo1.todoId)"
+                             mat-raised-button color="warn">Delete</button>
+                       </div>
+                    </li>
+                </ul>
+
+                <ng-template #notodo1>
+                    <p class="alert alert-info">
+                        no todos!!!
+                    </p>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr>
+
+<div class="row">
+    <div class="col-md-6 mb-4 mb-md-0">
+         <div class="card">
+            <div class="card-header">
+                Add Todo
+            </div>
+            <div class="card-body">
+                <label for="todoItem2">Todo Item</label>
+                <input type="text" class="form-control" #todoItem2>
+            </div>
+            <div class="card-footer">
+                <button 
+                *ngIf="!isInEditMode2"
+                (click)="onTodoAdd2()"
+                mat-raised-button color="primary" class="btn-block">Add Todo</button>
+                <button 
+                 *ngIf="isInEditMode2"
+                (click)="onTodoUpdate2()"
+                mat-raised-button color="accent" class="btn-block">Update Todo</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+       <div class="card">
+            <div class="card-body">
+                <ul class="list-group" *ngIf="todoArr.length > 0;else notodo2">
+                    <li 
+                    *ngFor="let todo2 of todoArr; trackBy:trackById2"
+                    class="list-group-item d-flex justify-content-between align-items-center">
+                        <strong>{{todo2.todoItem}}</strong>
+
+                        <div>
+                            <button
+                            (click)="onTodoEdit(todo2)"
+                             mat-mini-fab color="primary" class="mr-2"><mat-icon>edit</mat-icon></button>
+                            <button
+                            (click)="onTodoRemove2(todo2.todoId)"
+                             mat-mini-fab color="warn" ><mat-icon>delete</mat-icon></button>
+                        </div>
+                    </li>
+                </ul>
+
+                <ng-template #notodo2>
+                    <p class="alert alert-info">
+                        no todos!!!
+                    </p>
+                </ng-template>
+            </div>
+       </div>
+    </div>
+</div>
+
+<hr>
+
+<div class="row">
+    <div class="col-md-6 mb-4 mb-md-0">
+        <div class="card">
+            <div class="card-header">Add Todo</div>
+            <div class="card-body">
+                <label for="todoItem3">Todo Item</label>
+                <input type="text" class="form-control" #todoItem3>
+            </div>
+            <div class="card-footer">
+                <button
+                *ngIf="!isInEditMode3"
+                (click)="onTodoAdd3()"
+                 class="btn-block" mat-raised-button color="primary">Add Todo</button>
+                <button
+                (click)="onTodoUpdate()"
+                 *ngIf="isInEditMode3"
+                 class="btn-block" mat-raised-button color="primary">Update Todo</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <ul class="list-group" *ngIf="todoArr.length > 0;else notodo3">
+                    <li 
+                    *ngFor="let todo3 of todoArr; trackBy:trackById3"
+                    class="list-group-item d-flex justify-content-between align-items-center">
+                        <strong>{{todo3.todoItem}}</strong>
+                        
+                        <div>
+                            <button
+                            (click)="onTodoEdit3(todo3)"
+                             mat-raised-button color="primary" class="mr-2">Edit</button>
+                            <button
+                            (click)="onTodoRemove3(todo3.todoId)"
+                             mat-raised-button color="warn">Delete</button>
+                        </div>
+                    </li>
+                </ul>
+
+                <ng-template #notodo3>
+                    <p class="alert alert-info">
+                        no todos!!!
+                    </p>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+</div>
