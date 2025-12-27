@@ -170,7 +170,7 @@ isInEditMode3: boolean = false
 
     let getIndex = this.todoArr.findIndex(t=>t.todoId === updatedObj.todoId)
     this.todoArr[getIndex] = updatedObj;
-    this.isInEditMode = false
+    this.isInEditMode = true
    
   }
 
